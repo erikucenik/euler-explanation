@@ -1,0 +1,40 @@
+\documentclass[a4paper, titlepage]{article}
+\title{Una demostración sin sinsentidos de $e^{i\pi} = -1$.}
+\author{Erik López de la Fuente}
+\date{\today}
+
+\usepackage[table]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{accents}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Una explicación completa sobre la identidad de Euler. Se asume la posesión de cierto conocimiento sobre funciones y trigonometría y cálculo muy básicos, sin embargo, se proporciona un breve (aunque no riguroso) resumen.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\input{sections/intro.tex}
+\input{sections/pre.tex}
+\input{sections/exp.tex}
+\input{sections/complex.tex}
+\input{sections/euler.tex}
+\input{sections/intuitions.tex}
+
+\end{document}

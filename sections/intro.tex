@@ -1,0 +1,32 @@
+\section{Introducción.}
+
+La identidad de Euler $e^{i\pi} = -1$ es popularmente conocida como una de las ecuaciones más bellas de las matemáticas. Aunque no negaremos este hecho (después de todo, es un resultado espléndido), hemos percibido anecdóticamente que una mayoría de estudiantes solo atribuyen esta belleza a su forma, pero fallan en comprender su contenido.
+
+Esto no es sorprendente cuando tenemos en cuenta que la mayoría de términos en esta ecuación son \enquote{notacionalmente abusivos}. Si un estudiante de secundaria tuviese que describir su significado usando lo que sabe, todo lo que podría decir es algo como \enquote{el número $e$ multiplicado por sí mismo $\pi\cdot\sqrt{-1}$ veces es igual a $-1$} (eso si encontrásemos a uno que supiese qué es $e$). Que esto sea si quiera una posibilidad es catastrófico, y el resultado de múltiples compromisos (razonables) realizados durante el sistema educativo.
+
+Aquéllos que intentan esclarecer la esencia de esta expresión tienden a caer en uno de dos planteamientos muy distintos. El primero es el analítico, que suele llenar la página con ecuaciones y demostraciones oscuras para reafirmarse. Desde luego es riguroso, pero a menudo deja al lector con más preguntas que con las que comenzó. La explicación se siente completamente desligada del espíritu de descubrimiento juguetón que conllevan las matemáticas, y casi no sale del reino de la manipulación simbólica.
+
+En contraposición, otras explicaciones son tan excesivamente gráficas e intuitivas que la reacción análoga es algo en la línea de \enquote{¿Esto de verdad son matemáticas?}. Si esa pregunta se hace desde un punto de vista cínico o un estado de obnubilación no es algo que queramos discutir, pero nos gustaría señalar que este tipo de reacción muestra lo poco rigurosas que suelen ser estas pruebas.
+
+En este breve artículo nos proponemos encontrar un punto medio entre estos dos métodos. Reconoceremos la importancia de desarrollar una intuición por cada término y elaborar una caja de herramientas para entender qué significa y cómo se usa todo. Sin embargo, seremos rigurosos y no nos negaremos a los desarrollos matemáticos cuando sean necesarios. No incluiremos todas las demostraciones, pues consideramos que nublan el entendimiento y son redundantes entre miles de libros de texto, pero sí trataremos las que consideremos esenciales.
+
+Estudiaremos los conceptos uno por uno, sin embargo, es importante para el lector al menos estar familiarizado con las ideas de función, derivada, integral y funciones trigonométricas sencillas ($\sin(x)$ y $\cos(x)$). Ofrecemos una sección introductoria como repaso, pero con definiciones muy informales.
+
+\subsection{Desaprendiendo matemáticas \enquote{venenosas}.}
+
+El conocimiento es un desastre. El acto de aprender a menudo consiste en recibir explicaciones incorrectas sobre lo que algo es, acostumbrarse a esas explicaciones y, una vez familiarizado con ellas, tirar de la manta para revelar que, \textit{increíblemente}, no son el cuento completo. Esto no es una crítica o una invitación a hacer las cosas de otra manera. Después de todo, no puedes explicarle teoría de grupos directamente a un niño de cinco años. Para aprender temas complejos, el estudiante necesita poder compararlos con temas más simples.
+
+Así es también como históricamente se ha desarrollado la matemática. Los axiomas de los números reales no nacieron de la nada en el siglo nosequé, sino que son el resultado de siglos de pensadores que han extrapolado y generalizado ideas muy distintas que originalmente se usaban para resolver problemas particulares.
+
+El problema llega cuando se va de un nivel de abstracción a otro y se pasan por alto los detalles y el rigor. Usemos los exponentes fraccionarios como un ejemplo. En la escuela secundaria se le dice a los estudiantes que $a^{\frac{p}{q}}$ significa lo mismo que $\sqrt[q]{a^p}$ para $\frac{p}{q} \in \mathbb{Q}$, y se espera que todo el mundo se deje llevar. Si el profesor es medianamente bueno, puede que dé algunas pistas sobre por qué ese es el caso, pero no se ofrece ningún contexto histórico. Esto crea dos problemas:
+
+\begin{itemize}
+	\item Ignora el aspecto humano de la matemática, haciéndolas parecer algo caído del cielo. No pondremos en duda la divinidad de las matemáticas, pero pensar en ellas como un conjunto de reglas que siempre han existido y sido iguales es un punto de vista infantil. Si queremos que el estudiante haga algo más que un juego de niños, debemos imprimir un entendimiento sólido de, no solo lo que la matemática ofrece, sino de cómo se desarrolló.
+	\item Hace que el estudiante baje la guardia. Al acostumbrarse a los exponentes decimales, la mayoría de estudiantes no llegarán a considerar que $2^{\sqrt{2}}$ es un problema, descartándolo como simplemente un número con muchas cifras decimales e ignorande el hecho de que $\sqrt{2}$ no puede expresarse en la forma $\frac{p}{q} \in \mathbb{Q}$. Este tipo de pérdida de rigor es lo que hace que tanta gente enloquezca sobre definiciones conflictivas, argumentos circulares e inconsistencias generales.
+\end{itemize}
+
+Volviendo a $e$, reflexione sobre qué definición se le ofreció. Quizás fue presentado como una mera constante, $2.71828...$. O quizás como la solución a algún problema relacionado a tasas de crecimiento. La más exasperante debe ser aquélla que dice \enquote{se define $e$ como el número que satisface que $\ln(e) = 1$} para a continuación decir \enquote{se define $\ln(x)$ como el logaritmo cuya base es $e$: $\ln(x) = \log_e(x)$}.
+
+En este articulo redefiniremos todos los términos en $e^{i\pi}$ para que tengan su propio significado, sean compatibles con lo que ya conocemos y --- lo más importante --- no se definan circularmente.
+
+\newpage

@@ -1,0 +1,69 @@
+\section{La fórmula de Euler.}
+
+Estamos a punto de probar que $\exp(ix) = \cos(x) + i\sin(x)$ de dos maneras distintas.
+
+\subsection{Demostración por ecuaciones diferenciales.}
+
+Primero establecemos que $f$ y $g$ son:
+
+\begin{equation}
+\begin{cases}
+	f(x) = \cos(x) + i\sin(x) \\
+	g(x) = \exp(ix)
+\end{cases}
+\end{equation}
+
+Podemos ver que cuando evaluamos en $x = 0$, obtenemos el mismo resultado
+
+\begin{equation}
+\begin{cases}
+	f(0) = \cos(0) + i\sin(0) = 1 \\
+	g(0) = \exp(0\cdot i) = 1
+\end{cases}
+\end{equation}
+
+Por supuesto, demostrarlo para un valor está lejos de demostrarlo para todos los valores, sin embargo, nótese que
+
+\begin{equation}
+\begin{cases}
+	f'(x) = -\sin(x) + i\cos(x) = i(\cos(x) + i\sin(x)) = if(x) \\
+	g'(x) = i\exp(ix) = ig(x)
+\end{cases}
+\end{equation}
+
+Dos funciones que satisfacen la misma ecuación diferencial para la misma condicion inicial están destinadas a ser iguales, así que
+
+$$\exp(ix) = \cos(x) + i\sin(x)$$
+
+\subsection{Demostración por serie de Taylor.}
+
+Podemos escribir la expansión de Taylor de cada término:
+
+$$\cos(x)  =  \sum\limits_{n=0}^{\infty} \frac{D^n(\cos(x))_{x=0}}{n!} x^n = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots$$
+$$i\sin(x) = i\sum\limits_{n=0}^{\infty} \frac{D^n(\sin(x))_{x=0}}{n!} x^n = ix - \frac{ix^3}{3!} + \frac{ix^5}{5!} - \frac{ix^7}{7!} + \cdots$$
+$$\exp(ix) =  \sum\limits_{n=0}^{\infty} \frac{(ix)^n}{n!} = 1 + ix - \frac{x^2}{2!} - \frac{ix^3}{3!} + \frac{x^4}{4!} + \frac{ix^5}{5!} - \frac{x^6}{6!} - \frac{ix^7}{7!} + \cdots$$
+
+Es inmediatamente obvio que
+
+$$\exp(ix) = \cos(x) + i\sin(x)$$
+
+\subsection{Notación polar compleja.}
+
+Gracias a esto tenemos una forma muy conveniente y elegante de expresar números complejos. Regresando a las coordenadas polares, cuando un número complejo $z$ era representado por su longitud $|z|$ y su ángulo $\alpha$, teníamos que
+
+$$z = |z| \cdot (\cos(\alpha) + i\sin(\alpha))$$
+
+Con el conocimiento adquirido, está claro que podemos expresar esto como
+
+$$z = |z| \cdot \exp(i\alpha)$$
+
+O, si se prefiere,
+
+$$z = |z| \cdot e^{i\alpha}$$
+
+Et voilá
+
+$$1\cdot e^{i\pi} = \cos(\pi) + i\sin(\pi) = -1 + 0i = -1$$
+$$e^{i\pi} = -1$$
+
+\newpage
