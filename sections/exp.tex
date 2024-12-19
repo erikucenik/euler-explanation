@@ -1,115 +1,115 @@
-\section{Exponenciales y $e$.}
+\section{Exponentials and $e$.}
 
-Como hemos insinuado antes, $e^x$ es una notación horrorosa que debería quedar exiliada de las explicaciones para principiantes. Es así que haremos un compromiso de olvidar su existencia hasta estar cualificados para usarla. Solicitamos que el lector descarte todo lo que sabe sobre exponentes hasta la educación secundaria.
+As we implied before, $e^x$ is a horrendous notation which should be exiled from beginner-friendly explanations. Hence, we shall make a compromise to forget its existance until qualified to use it. We ask the reader to discard everything they know about exponentials up until secondary education.
 
-Recopilando el poco entendimiento que parece consistente consigo mismo, $a^q$ solo tiene sentido cuando $a\in \mathbb{R}$ y $q \in \mathbb{Q}$ (uno puede cuestionarse la naturaleza de los números reales y qué significa multiplicar dos de ellos, pero queda fuera del alcance de este artículo). Cuando $q \in \mathbb{N}$, la potenciación se convierte en el conocido \enquote{multiplicar $a$ por sí mismo $q$ veces}. Sin embargo, tradicionalmente se introduce que, como $a^b a^c = a^{b + c}$ y como $\sqrt[2]{a} \cdot \sqrt[2]{a} = a$, es razonable decir que $a^{\frac{1}{2}}\cdot a^{\frac{1}{2}} = a^{\frac{1}{2} + \frac{1}{2}} = a$ y por ende que $a^{\frac{1}{2}} = \sqrt[2]{a}$. Extrapolando esto y usando propiedades similares, en general decimos que $a^{\frac{b}{c}} = \sqrt[c]{a^b}$.
+Gathering what few understanding seems self-consistent, $a^q$ only makes sense when $a \in \mathbb{R}$ and $q \in \mathbb{Q}$ (one can question the nature of real numbers and what it means to multiply two together, but that lies far from the scope of this article). When $q \in \mathbb{N}$, exponentiation becomes the familiar \enquote{multiply $a$ times itself $q$ times}. However it is traditionally introduced that, because $a^b a^c = a^{b + c}$ and because $\sqrt[2]{a} \cdot \sqrt[2]{a} = a$, it is reasonable to say that $a^{\frac{1}{2}}\cdot a^{\frac{1}{2}} = a^{\frac{1}{2} + \frac{1}{2}} = a$, and hence that $a^{\frac{1}{2}} = \sqrt[2]{a}$. Extrapolating this and using similar properties, we generally say that $a^{\frac{b}{c}} = \sqrt[c]{a^b}$.
 
-Nótese que en ningún momento se ha mencionado la existencia de exponentes reales, y por un buen motivo: no tienen ningún sentido. ¿Cómo podría uno definir $e^x$ como una función continua si solo se permiten números racionales?
+Note that at no point have we mentioned real numbers as exponents, and for good reason: they don’t make sense at all. How could one define $e^x$ to be a continuous function if only rational numbers are allowed?
 
-\subsection{El área bajo $\frac{1}{t}$.}
+\subsection{The area under $\frac{1}{t}$.}
 
-Tómese la función $f(t) = \frac{1}{t}$ y sea $A(x) = \int_1^x f(t) dt$ (Figura \ref{graph}). Uno puede imaginar esto como un plano con ejes $t$ e $y$ en el que se dibuja la función $f(t)$. Establecemos un punto fijo en $t = 1$ y dibujamos una línea vertical desde el eje $t$ hasta su intersección con $f(t)$. A su derecha, tenemos otro segmento vertical en $t = x$, también contenido entre el eje $t$ y la gráfica de la función. Uno puede imaginar a $x$ y su línea moviéndose libremente a lo largo del eje $t$, ensanchando y acortando la \enquote{ventana} entre los dos segmentos verticales. Con esto en mente, la función $A(x)$ describe el valor del área de esa ventana. Por supuesto, esto no es más que una integral.
+Take the function $f(t) = \frac{1}{t}$ and let $A(x) = \int_1^x f(t) dt$ (Figure \ref{graph}). One can imagine this as a plane with axes $t$ and $y$ in which a function $f(t)$ is drawn. We establish a fixed point at $t = 1$ and draw a vertical line from the $t$ axis up until its intersection with $f(t)$. To its right, we have another vertical segment at $t = x$ which is also contained between the $t$ axis and the function’s graph. One can imagine $x$ and its line as moving freely through the $t$ axis, widening and shortening the \enquote{window} between the two vertical segments. With this notion in mind, the function $A(x)$ describes the value of the area of that window. Of course, this is just an integral.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{media/lnx.png}
-	\caption{Representación gráfica de la integral de $1$ a $x$ de la función $f(t) = \frac{1}{t}$. La variable $x$ puede pensarse como un \enquote{control deslizante} que cambia cuán ancho es el marco de integración. Una gráfica interactiva está disponible en Desmos en \url{https://www.desmos.com/calculator/drhxhrnnr1}.}
+	\caption{Graphical representation of the integral from $1$ to $x$ of the function $f(t) = \frac{1}{t}$. The variable $x$ can be thought of as a \enquote{slider} which changes how wide the integration window is. An interactive Desmos graph is available at \url{https://www.desmos.com/calculator/drhxhrnnr1}.}
 	\label{graph}
 \end{figure}
 
-Nótese que lo que \enquote{varía} en $A(x)$ es $x$, en otras palabras, ese \enquote{control deslizante} que cambia cómo de ancha es nuestra ventana. $t$ no cambia con $x$, solo define a la función. Para esclarecer esto, uno puede considerar tomar valores específicos de $x$. Por ejemplo, $A(3) = \int_{1}^{3} f(t) dt$ significa \enquote{el área encerrada bajo la curva dibujada por $\frac{1}{t}$ entre $t = 1$ y $t = 3$}. Esto produce un número real con el valor $1.0986...$.
+Note that what \enquote{varies} in $A(x)$ is $x$, in other words, that \enquote{slider} which changes how wide our window is. $t$ doesn't vary with $x$, it just defines the function. To clarify this, one might consider taking specific values of $x$. For example, $A(3) = \int_{1}^{3} f(t) dt$ means \enquote{the area encapsulated under the curve drawn by $\frac{1}{t}$ between $t = 1$ and $t = 3$}. This yields a real number with value $1.0986...$.
 
-\textbf{Definimos} esa función de área como el \textit{logaritmo natural de $x$} (un nombre que por ahora puede perfectamente estar vacío de significado), escrito como $\ln(x) := A(x) = \int_{1}^{x} \frac{1}{t} dt$. Por el Teorema Fundamental del Cálculo, $A'(x) = (\ln(x))' = \frac{1}{x}$ (también puede ser demostrado por medio del Teorema del Sandwich). También definimos a $e$ como el número que satisface que $\ln(e) = 1$.
+We \textbf{define} that area function to be the \textit{natural logarithm of $x$} (a name which might as well be meaningless for now), written as $\ln(x) := A(x) = \int_{1}^{x} \frac{1}{t} dt$. Because of the Fundamental Theorem of Calculus, $A'(x) = (\ln(x))' = \frac{1}{x}$ (it can also be proved using the Sandwich theorem). We also define $e$ to be the number that satisfies that $\ln(e) = 1$. 
 
 \newpage
 
-\subsection{Propiedades de la función $\ln(x)$.}
+\subsection{Properties of the $\ln(x)$ function.}
 
-Solo mirando al gráfico es inmediatamente obvio que para que la función $\ln(x)$ tenga sentido, $x$ debe ser mayor que $0$. Podemos analizar valores entre $0$ y $1$ invirtiendo los límites de integración y el signo del resultado. Es fácil ver entonces que $\ln(x)$ siempre es creciente, y que para valores entre 0 y 1, su valor es negativo. Además, en $x = 1$, su área queda colapsada hasta la nada, así que $\ln(1) = 0$.
+Just by looking at the graph it is immediately obvious that for the $\ln(x)$ function to make sense, $x$ must be greater than $0$. We can analyse values between $0$ and $1$ by inverting the integration boundaries and the sign of the result. It's easy to see then that $\ln(x)$ is always an increasing function, and that for values between 0 and 1, its value will be negative. Furthermore, at $x = 1$, its area gets squished into nothingness, so $\ln(1) = 0$.
 
-Podemos demostrar las siguientes dos propiedades:
+We can prove the following two properties:
 
 \begin{itemize}
-	\item $\ln(ax) = \ln(a) + \ln(x)$ para todo $a, x \in \mathbb{R}^+$.
-	\item $\ln(x^{\frac{p}{q}}) = \frac{p}{q} \ln(x)$ para todo $\frac{p}{q} \in \mathbb{Q}$ y $x \in \mathbb{R}^+$.
+	\item $\ln(ax) = \ln(a) + \ln(x)$ for all $a, x \in \mathbb{R}^+$.
+	\item $\ln(x^{\frac{p}{q}}) = \frac{p}{q} \ln(x)$ for all $\frac{p}{q} \in \mathbb{Q}$ and $x \in \mathbb{R}^+$.
 \end{itemize}
 
-\subsubsection{Demostración de $\ln(ax) = \ln(a) + \ln(x)$.}
+\subsubsection{Proof of $\ln(ax) = \ln(a) + \ln(x)$.}
 
-Empezamos tomando la derivada de $\ln(ax)$:
+We start from taking the derivative of $\ln(ax)$:
 
 $$(\ln(ax))' = \frac{1}{ax} \cdot a = \frac{1}{x} = (\ln(x))'$$
 
-Esto implica que
+This implies that
 
 $$(\ln(ax) - \ln(x))' = 0$$
 
-lo que quiere decir que
+meaning
 
-$$\ln(ax) - \ln(x) = c \textrm{ (constante)}$$
+$$\ln(ax) - \ln(x) = c \textrm{ (constant)}$$
 
-Para obtener el valor de $c$, podemos evaluar estas funciones en $x = 1$.
+To obtain the value of $c$, we can evaluate these functions at $x = 1$.
 
 $$\ln(a) - \ln(1) = c \iff c = \ln(a)$$
 
-Es decir
+That is to say
 
 $$\ln(ax) = \ln(a) + \ln(x)$$
 
-Este método también funciona para demostrar que $\ln(\frac{x}{a}) = \ln(x) - \ln(a)$. Nótese que esto funciona para \textit{todos los números reales positivos}.
+This method also works for proving that $\ln(\frac{x}{a}) = \ln(x) - \ln(a)$. Note that this works for \textit{every positive real number}. 
 
-\subsubsection{Demostración de $\ln(x^{\frac{p}{q}}) = \frac{p}{q} \ln(x)$}
+\subsubsection{Proof of $\ln(x^{\frac{p}{q}}) = \frac{p}{q} \ln(x)$}
 
-Empezando de nuevo por su derivada,
+Starting again from its derivative,
 
 $$\ln(x^{\frac{p}{q}})' = \frac{1}{x^{\frac{p}{q}}} \frac{p}{q} x^{\frac{p}{q} - 1} = \frac{p}{q} \frac{1}{x} = \frac{p}{q} (\ln(x))'$$
 
-Otra vez, podemos restar la primera y la última derivada para obtener cero, implicando que $\ln(x^{\frac{p}{q}}) - \ln(x) = c$ con $c$ constante. En este caso, la constante resulta ser $c = 0$, dejando
+Again, we substract the first and the last derivatives to get zero, meaning that $\ln(x^{\frac{p}{q}}) - \ln(x) = c$ with constant $c$. In this case, the constant turns out to be $c = 0$, leaving
 
 $$\ln(x^{\frac{p}{q}}) = \frac{p}{q} \ln(x)$$
 
-Esto es válido si $x > 0$ y si $\frac{p}{q} \in \mathbb{Q}$. Todavía no encontramos exponentes reales por ninguna parte.
+This is valid if $x > 0$ and if $\frac{p}{q} \in \mathbb{Q}$. Still, no real exponents to be found anywhere.
 
-\subsection{La función exponencial.}
+\subsection{The exponential function.}
 
-Por estas propiedades, estamos autorizados a decir que:
+By these properties, we can confidently say that:
 
 $$\ln(e^2) = 2\ln(e) = 2$$
 $$\ln(e^3) = 3\ln(e) = 3$$
 $$\ln(e^4) = 4\ln(e) = 4$$
 $$\ln(e^{q}) = q, \forall q \in \mathbb{Q}$$
 
-Ahora definimos a la \textit{función exponencial} como el inverso de la función logaritmo natural: $\exp(x) := \ln^{-1}(x)$. Piénsese en el término \textit{exponencial} como un nombre en vez de un adjetivo. Por esta definición y por los resultados anteriores:
+Now we define the \textit{exponential function} to be the inverse of the natural logarithm function: $\exp(x) := \ln^{-1}(x)$. Think of the term \textit{exponential} as a name instead of an adjective. By this definition and by the previous results:
 
 $$\exp(2) = \ln^{-1}(2) = e^2$$
 $$\exp(3) = \ln^{-1}(3) = e^3$$
 $$\exp(4) = \ln^{-1}(4) = e^4$$
 
-En este sentido, se puede demostrar que la función $\exp(x)$ comparte bastantes similitudes con elevar $e$ a una potencia. Las propiedades habituales de los exponentes se traspasan también a esta función.
+It can be proved that the $\exp(x)$ function shares a lot of similarities with raising $e$ to a power in this regard. The usual properties of exponents transfer into this function.
 
 $$\exp(a + b) = \exp(a\cdot b)$$
 $$\exp(a \cdot b) = \exp(a)^b$$
 $$\exp\left(\frac{1}{2}\right) = \sqrt{e}$$
 $$\exp(-1) = e^{-1}$$
 
-Por esta bizarra correlación, es casi universal escribir $\exp(x)$ como $e^x$. Sin embargo, $\ln: (0, \infty) \to \mathbb{R}$, y por ende $\exp: \mathbb{R} \to (0, \infty)$. En otras palabras, podemos evaluar $\exp(x)$ en valores de $x$ irracionales. Esto no es un problema para la función $\exp(x)$, pero decir que $e^x$ puede tener una potencia irracional supone redefinir el mismísimo significado de \enquote{potencia}.
+Because of this bizarre correlation, it is almost universal to write $\exp(x)$ as $e^x$. However, $\ln: (0, \infty) \to \mathbb{R}$, and hence $\exp: \mathbb{R} \to (0, \infty)$. In other words, we can evaluate $\exp(x)$ at irrational $x$ values. This isn't a problem for $\exp(x)$, but to say that $e^x$ can have an irrational power implies redefining what \enquote{power} even means.
 
-En esencia, definiremos toda potencia de exponente real en términos de $\ln$ y $\exp$. Aprovechando cierto abuso notacional, decimos que:
+In essence, we'll define every power with real exponent in terms of $\ln$ and $\exp$. Taking advantage of some notational abuse, we say that:
 
 $$e^x := \exp(x)$$
 $$a^x := \exp(x\cdot \ln(a)) = e^{x\cdot \ln(a)}$$
 
-donde $a\in \mathbb{R}^+$ y $x\in \mathbb{R}$. Nótese que $-a^x \in \mathbb{R}$, mientras que $(-a)^x \in \mathbb{C}$. Esta es nuestra primera definición formal de $e$:
+where $a\in \mathbb{R}^+$ and $x\in \mathbb{R}$. Note that $-a^x \in \mathbb{R}$, whereas $(-a)^x \in \mathbb{C}$. This is our first formal definition of $e$:
 
 $$e := \exp(1) = \ln^{-1}(1) \iff \ln(e) = \int_{1}^{e} \frac{1}{t} dt = 1$$
 
-\subsection{Otras definiciones de $e$.}
+\subsection{Other definitions of $e$.}
 
-Como con muchas cosas en matemáticas, lo definido en una ocasión aparece en otros lugares inesperados. $e$ fue originalmente descubierto en el estudio de las tasas de interés en diferentes periodos de tiempo por Bernoulli.
+As with many things in math, what you define in one occasion turns up in other unexpected places. $e$ was originally discovered in the study of interest rates over different periods of time by Bernoulli.
 
 $$\exp(x) = \lim_{n \to \infty} \left(1 + \frac{x}{n}\right)^n$$
 
-$e$ es característico de aquéllos fenómenos en la naturaleza donde la tasa de cambio de una variable depende del valor de esa variable. Expresado usando ecuaciones diferenciales, $\exp(x)$ es la solución de:
+$e$ is characteristic of those phenomena in nature where the rate of change of some variable depends on the value of that variable. Expressed through differential equations, $\exp(x)$ is the solution to:
 
 \begin{equation}
 	\begin{cases}
@@ -118,7 +118,7 @@ $e$ es característico de aquéllos fenómenos en la naturaleza donde la tasa de
 	\end{cases}
 \end{equation}
 
-Si examinásemos $f$ mediante su expansión de Taylor, obtendríamos otra definición para la exponencial:
+If we tried to examine $f$ through its Taylor expansion, we would get another definition for the exponential:
 
 $$\exp(x) = \lim_{n \to \infty} \sum\limits_{k = 0}^{n} \frac{x^k}{k!}$$
 

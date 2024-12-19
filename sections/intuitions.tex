@@ -1,61 +1,111 @@
-después de haber definido qué es $\ln(x)$ podemos extender $\log_e(x)$ para significar $\ln(x)$.
+\section{The underlying meaning.}
 
-Por supuesto, después de haber definido y demostrado todo rigurosamente podemos escribir las cosas en cualquier orden, pero esto solo debe hacerse una vez el estudiante ha obtenido un entendimiento sólido sobre por qué estas retrocompatibilidades funcionan.
+Our explanation so far has relied on analythic methods, and, although consistent within itself, one could reasonably argue that it is as obscure as any other one. We now give each concept semantical meaning, such that the reader comes out convinced that what has been seen until now is not only fair, but also somewhat intuitive.
 
-En una nota menos técnica desearíamos señalar que elegir $e^x$ para representar fenómenos exponenciales en disciplinas como la física o la estadística es meramente una decisión estética. Uno podría perfectamente expresar $2^3$ como $\pi^{\log_{\pi}(2)\cdot 3}$, es solo que al elegir $e^x$, solo las constantes relevantes --- las que de verdad poseen significado semántico en el universo --- permanecen.
+\subsection{Exponential phenomena.}
+
+One of the ways we can categorize different magnitudes is by how they change and develop. The age of a person increases linearly, this means that it doesn't matter whether someone turns 19 or 91, neither whether that happens in 2025 or in 1320; in every case, the rate of change has remained constant: one year per year.
+
+We say a variable grows \textit{exponentially} when its rate of change is proportional to the value of the variable itself. That is, if the variable is equal to 3, then its rate of change will be proportional to 3. This doesn't seem very impressive until you stop to consider its implications and run the numbers. An example of exponential growth (also called \textit{geometric growth} when talking about discrete cases) is the sequence:
+
+$$1, 4, 16, 64, 256, 1024, 4096, 16384...$$
+
+Note that already on the fith term we're on four figures.
+
+We've previously said that real exponents make no sense (at least before introducing the $\exp(x)$ and $\ln(x)$ functions). While this holds true, it is also true that many real world continuous phenomena exhibit an exponential nature. If we stand faithful to our scientific spirit of inquiry, these kind of phenomena should be taken into account before any notion of $\ln(x)$ and $\exp(x)$ is developed. Let us just create a fiction in which, in some way, we got to a formalisation of real exponents that doesn't have anything to do with these two functions, for example, by \enquote{filling in the holes} in the function $f(x) = 4^x$ for $x \in \mathbb{Q}$ such that $x\in \mathbb{R}$ (making it continuous).
+
+We can analyse the derivative of $f(x) = 4^x$ to find its rate of change and get that:
+
+$$f'(x) = 4^x \cdot 1.386294...$$
+
+As expected, its rate of change is proportional to its value, however, the proportionality constant ($1.386294...$) is quite bizarre. It's also worth saying that this proportionality constant varies depending on the base of the exponential. If we had instead used $g(x) = 7^x$, we would've found that
+
+$$g'(x) = 7^x \cdot 1.945910...$$
 
 \newpage
 
-Véase el caso del decaimiento exponencial. Si se tiene un material radioactivo, se puede medir cuántos isótopos radioactivos tiene ($N_0$). Con el paso del tiempo ($t$), algunos de esos isótopos se desintegrarán, transformándose en otros elementos o isótopos y dejando una menor cantidad de isótopos radioactivos en el material ($N(t)$). Este proceso también es una exponencial, y por ende puede expresarse con la siguiente ecuación diferencial:
+A natural question that comes to mind when pondering about how one would express this constant in terms of the base is to find a base which makes the constant equal to $1$, this means, not only having an exponential function whose rate of change is \textit{proportional} to its current value, but also one that makes it \textit{exactly equal} to its current value. Surprisingly, the value of this base turns out to be $h(x) = e^x$.
+
+$$h'(x) = e^x$$
+
+Knowing this, we can derive the general expression for the derivative of $F(x) = a^x$. First, note that
+
+$$e^{\log_e(a)} = a$$
+
+This has NOTHING to do with the $\ln(x)$ function. Think of $\log_e(a)$ as any other logarithm which just happens to have base $e$. You can formulate it in the usual \enquote{To what power do you have to raise the number $e$ to get $a$?}. We are allowed to write then that
+
+$$F(x) = a^x = [e^{\log_e(a)}]^x = e^{\log_e(a)\cdot x}$$
+
+If we take its derivative and apply the chain rule,
+
+$$F'(x) = e^{\log_e(a)\cdot x} \cdot \log_e(a)$$
+
+(We know $e^x$ to be its own derivative because that's pretty much how we've defined $e$). Substituting back $a^x$, we get that
+
+$$F'(x) = (a^x)' = a^x \cdot \log_e(a)$$
+
+Recovering the knowledge we obtained from previous sections, it is possible to rewrite this as
+
+$$(a^x)' = a^x \cdot \ln(a)$$
+
+But notice that this is somewhat retconning. The function $\log_e(x)$ isn't the same as $\ln(x)$, as the former works on the realm of rational numbers, whereas the latter works with real numbers. Only after having defined what $\ln(x)$ is can we extend $\log_e(x)$ to mean $\ln(x)$.
+
+Rest assured, after having rigorously defined and proved everything, we can write things in whatever order we want, but this must only be done once the student has a solid understanding on why these backwards compatibilities work.
+
+On a less technical note we would like to point out that choosing $e^x$ to represent exponential phenomena in disciplines like physics or statistics is a merely aesthetical choice. One could very much express $2^3$ as $\pi^{\log_{\pi}(2)\cdot 3}$, it's just that when choosing $e^x$, only the non-cluttering constants --- the ones with actual semantic meaning in the universe --- remain.
+
+\newpage
+
+Take exponential decay. If you have a radioactive material, you can measure how many radioactive isotopes it has ($N_0$). With the passage of time ($t$), some of those isotopes will undergo radioactive decay, transforming into other elements or isotopes and leaving a smaller amount of radioactive isotopes in the material ($N(t)$). This process is also an exponential, and thus can be expressed by the following differential equation:
 
 $$N'(t) = -\lambda N(t)$$
 
-Una posbile solución a esta ecuación es
+One possible solution to this equation is
 
 $$N(t) = N_0 a^{-ct}$$
 
-Donde $c = \lambda \cdot \log_a(e)$. Esto es, sin falta, una solución válida. Su único problema, como hemos dicho, es uno estético. ¿Qué significa $c$? ¿Podría uno saber algo acerca del fenómeno descrito solo mirando a esta constante? De ninguna manera. Si en su lugar lo expresamos así:
+Where $c = \lambda \cdot \log_a(e)$. This is, by all means, a valid solution. It's only problem, as we've said, is an aesthetic one. What does $c$ mean? Would one know anything about the phenomenon being described just by glancing at this constant? Absolutely not. If we instead express it this way
 
 $$N(t) = N_0 e^{-\lambda t}$$
 
-De repente no hay \enquote{constantes basura} y, más importantemente, $\lambda$ adquiere significado semántico. En el caso de la desintegración radioactiva, $\lambda$ es llamada la \textit{constante de desintegración} o \textit{decaimiento}. Esto no solo es relevante para $\lambda$, sino para todas las magnitudes que se deriven de ella. Por ejemplo, $t_{1/2} = \frac{\ln(2)}{\lambda}$ es la \textit{semivida} de la cantidad, y describe la cantidad de tiempo necesaria para que la cantidad $N$ se reduzca a la mitad. ¿Podríamos haber expresado lo mismo arrastrando un factor de $\log_a(e)$ constantemente? Totalmente, pero entonces nuestra definición de semivida sería algo como \enquote{la cantidad de tiempo necesaria para que la cantidad $N$ se reduzca a la mitad dividida por $\log_a(e)$}. Esta definición simplemente se siente embrollada y mal, mientras que la otra parece arrastrar cierto significado objetivo, como si la constante $e$ fuese la elección \textit{natural} de base. Esto es lo que hace \textit{natural} al logaritmo natural.
+Suddenly there are no \enquote{clutter constants} and, more importantly, $\lambda$ takes semantic meaning. In the case of radioactive decay, $\lambda$ is called the \textit{disintegration constant} or \textit{rate constant}. This is not only meaningful for $\lambda$ itself, but for all the magnitudes derived from $\lambda$. For example, $t_{1/2} = \frac{\ln(2)}{\lambda}$ is called the \textit{half life} of the quantity, and it describes the amount of time necessary for the amount $N$ to be cut in half. Could have we expressed the same thing by carrying a factor of $log_a(e)$ the whole time? Absolutely, but then our definition of half life would be something like \enquote{the amount of time necessary for the amount $N$ to be cut in half divided by $\log_a(e)$}. This definition just feels wrong and muddled, whereas the other one seems to carry some objective meaning, as if the constant $e$ was just the \textit{natural} option for deciding a base. This is what makes the natural logarithm \textit{natural}.
 
-En resumen, las variables exponenciales son aquéllas cuya tasa de cambio es proporcional al valor de la variable en sí, y $e$ es el número que cumple que esa constante de proporcionalidad es $1$, lo que lo hace la forma más \textit{natural} de expresar muchas ecuaciones en física.
+To summarize, exponential variables are those whose rate of change is proportional to the variable's value itself, and $e$ is the number which satisfies that that proportionality constant is $1$, which makes it the \textit{natural} way of expressing many equations in physics.
 
-\subsection{Números complejos como rotaciones.}
+\subsection{Complex numbers as rotations.}
 
-Cuando se presentan los números complejos por primera vez, una de las extrañas decisiones que destacan sobre su definición es su posición en el plano complejo. Aunque cualquier par ordenado puede ser ubicado en una gráfica, no es evidente por qué $i$ debería estar a un paso del $0$ perpendicular al eje real. Sin embargo, cuando movemos nuestra perspectiva sobre los números para pensar en ellos como \textit{acciones}, esto no solo se convierte en un resultado razonable, sino en el único posible.
+When first introduced to complex numbers, one of the first strange decisions that stand out about their definition is their position on the complex plane. Although any ordered pair can be plotted in a graph, it doesn't seem obvious why $i$ should be one step up from $0$ perpendicular to the real axis. However, when we shift our perspective on numbers to thinking of them as \textit{actions}, this not only becomes a reasonable outcome, but the only possible one.
 
-Si uno está familiarizado con simples vectores en $\mathbb{R}^2$, uno ya vislumbrará cómo los números pueden ser vistos de esta manera. Multiplicar un vector por un número positivo es \textit{escalarlo}, hacerlo más grande o más pequeño preservando la dirección a la que \enquote{apunta}. De manera similar, multiplicarlo por un número negativo corresponde a hacer lo mismo pero \enquote{volteando} su dirección, o rotándolo por $180^{\circ}$.
+If one is familiar with simple $\mathbb{R}^2$ vectors, one will already see how numbers can be seen this way. Multiplying a vector by a positive number is \textit{scaling} it, making it bigger or smaller while preserving the way it \enquote{points} to. Similarly, multiplying it by a negative number is doing the same thing but also \enquote{flipping} its direction, or rotating it by $180^{\circ}$.
 
-¿Pero qué es una rotación de $180^{\circ}$ si no dos rotaciones consecutivas de $90^{\circ}$? Si multiplicar por $-1$ produce una rotación de $180^{\circ}$, aquél número que represente una rotación de $90^{\circ}$ ha de ser, en cierto sentido, la raíz cuadrada de $-1$. Esta noción de multiplicaciones (de números) transformándose en sumas (de ángulos) debería dar una pista de que las exponenciales entrarán en escena tarde o temprano.
+But what is a $180^{\circ}$ rotation if not two consecutive $90^{\circ}$ rotations? If multiplying by $-1$ yields a $180^{\circ}$ rotation, whatever number represents a $90^{\circ}$ rotation must be, in a sense, the square root of $-1$. This notion of multiplication (of numbers) turning into addition (of angles) should already give away a hint that exponentials will sooner or later be useful as a model.
 
-Si uno no queda convencido con este argumento, nótese lo siguiente. Si $z = a + bi$, entonces $i\cdot z = -b + ai$. Esta transformación de coordenadas es exactamente lo mismo que una rotación antihoraria de $90^{\circ}$ ($(x, y) \to (-y, x)$). Este concepto puede extrapolarse a otros números complejos, sin embargo nuestro caso solo requiere que entendamos la acción de $i$.
+If one isn't convinced by this argument, note the following. If $z = a + bi$, then $i\cdot z = -b + ai$. This coordinate transformation is exactly the same as a $90^{\circ}$ counter-clockwise rotation ($(x, y) \to (-y, x)$). This concept can be expanded further onto other complex numbers, however our case only requires for us to understand the action of $i$.
 
-\subsection{Exponenciales complejas.}
+\subsection{Complex exponentials.}
 
-Esta es quizás la parte más difícil de visualizar, así que usaremos una analogía con la física. Puede ser útil interpretar $f(t) = \exp(it)$ como la posición de una partícula en el plano complejo en cierto punto en el tiempo, y su derivada $f'(t) = i\exp(it)$ como su velocidad. Vale la pena notar que, en cualquier posición, el vector velocidad de la partícula forma un ángulo de $90^{\circ}$ con su vector posición (pues $f'(t) = i\cdot f(t)$, esto es, una rotación antihoraria de $90^{\circ}$. Uno puede visualizar a la partícula \enquote{orbitando} en torno al origen en un movimiento circular (Figura \ref{rot}).
+This is perhaps the hardest part of all to visualize, so we shall use a physics analogy. It can be useful to interpret $f(t) = \exp(it)$ as the position of a particle in the complex plane at a given point in time, and its derivative $f'(t) = i\exp(it)$ as its velocity. It is worth noting that, at every position, the particle's velocity vector forms a $90^{\circ}$ angle with its position vector (because $f'(t) = i\cdot f(t)$, that is, a $90^{\circ}$ counter-clockwise rotation). One can visualize the particle \enquote{orbiting} the origin in a circular motion (Figure \ref{rot}).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{media/rotation.png}
-	\caption{Partícula en el plano complejo con posición $\exp(it)$ (señalada en rojo) y velocidad $i\exp(it)$ (señalada en morado). Al principio, $f(0) = 1$. Después de un cambio infinitesimal en el tiempo, la partícula se habrá movido perpendicular a su vector posición (a lo largo de su vector velocidad). Como sabemos por la física, este es el escenario para el movimiento circular. Un gráfico interactivo de Desmos está disponible en \url{https://www.desmos.com/calculator/8npnlxgjba}.}
+	\caption{Particle on the complex plane with position $\exp(it)$ (shown in red) and velocity $i\exp(it)$ (shown in purple). In the beginning, $f(0) = 1$. After an infinitesimal nudge in time, the particle will move perpendicular to its position vector (along its velocity vector). As we know from physics, this is the setup for circular motion. An interactive Desmos graph is available at \url{https://www.desmos.com/calculator/8npnlxgjba}.}
 	\label{rot}
 \end{figure}
 
-Lo que nos dice la fórmula de Euler es que el ángulo barrido por el vector posición de la partícula en un tiempo $t$ es \textit{exactamente} $t$. Entonces, tras 2 segundos, la partícula forma un ángulo de 2 radianes con el eje real; después de $\pi$ segundos, la partícula forma un ángulo de $\pi$ radianes con el eje real (lo cual coincide con el punto $-1 + 0i$), etc.
+What Euler's formula tells us is that the angle the particle's position vector has swept at time $t$ is \textit{exactly} $t$. So, after 2 seconds, the particle forms a 2 radian angle with the real axis; after $\pi$ seconds, the particle forms a $\pi$ radian angle with the real axis (which coincides with the point $-1 + 0i$), etc.
 
-Nuevamente, la función exponencial aquí no es una decisión fundamental. Podríamos perfectamente haber elegido el número áureo $\phi$ como una base, haciendo que $f(t) = \phi^{it}$. La única diferencia es que en este caso, los ángulos barridos no coinciden con el tiempo transcurrido. Usando esta función, llegamos a la fórmula de EulErik (nombrada así por ningún motivo en particular):
+Once again, the exponential function here is not a fundamental choice. We could've chosen the golden ratio $\phi$ as a base, making $f(t) = \phi^{it}$ and $f'(t) = \ln(\phi) \cdot \phi^{it}$. The only difference is that in this case the swept angles don't match the elapsed time. Using this function, we get to EulErik's formula (named like that for no particular reason):
 
 $$\phi^{i\frac{\pi}{\log_{\phi}(e)}} = -1$$
 
-\section{Conclusión.}
+\section{Conclusion.}
 
-Para condensar todo lo visto hasta ahora en un resumen sencillo:
+To compress everything seen thus far into a simple summary:
 
 \begin{itemize}
-	\item Los números complejos proporcionan una forma de expresar rotaciones en el plano complejo. Concretamente, $i$ significa una rotación antihoraria de $90^{\circ}$.
-	\item La función exponencial ($\exp(x)$ o $e^x$) proporciona una forma de expresar variables cuya tasa de cambio es igual a su valor actual. Su característica más fundamental es el hecho de que su derivada es igual a sí misma.
-	\item $e^{it}$ es el punto que resulta de rotar un punto en torno al origen por tiempo $t$, y por propiedades expuestas de $\exp(x)$, este caso particular satisface que el tiempo transcurrido es igual al ángulo barrido por el vector posición del punto. Otra forma de expresar la posición de este vector es $\cos(x) + i\sin(x)$ (la fórmula de Euler).
-	\item $e^{i\pi}$ es el caso particular donde el punto aterriza en $-1$ (la identidad de Euler).
+	\item Complex numbers provide a way to express rotations in the complex plane. Specifically, $i$ means a $90^{\circ}$ counter-clockwise rotation.
+	\item The exponential function ($\exp(x)$ or $e^x$) provides a way to express phenomena whose rate of change is the same as their current value. Its most fundamental characteristic is the fact that its derivative is equal to itself.
+	\item $e^{it}$ is the point that results from rotating a point around an origin for $t$ time, and because of the already mentioned properties of $\exp(x)$, this particular case satisfies that the elapsed time is the same as the angle swept by the position vector of the point. Another way to express this vector's position is $\cos(x) + i\sin(x)$ (Euler's formula).
+	\item $e^{i\pi}$ is the particular case where the point lands on $-1$ (Euler's identity).
 \end{itemize}

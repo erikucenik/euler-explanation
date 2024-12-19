@@ -1,10 +1,10 @@
-\section{La fórmula de Euler.}
+\section{Euler's formula.}
 
-Estamos a punto de probar que $\exp(ix) = \cos(x) + i\sin(x)$ de dos maneras distintas.
+We are about to prove that $\exp(ix) = \cos(x) + i\sin(x)$ in two different ways.
 
-\subsection{Demostración por ecuaciones diferenciales.}
+\subsection{Proof by differential equations.}
 
-Primero establecemos que $f$ y $g$ son:
+First we establish $f$ and $g$ to be:
 
 \begin{equation}
 \begin{cases}
@@ -13,7 +13,7 @@ Primero establecemos que $f$ y $g$ son:
 \end{cases}
 \end{equation}
 
-Podemos ver que cuando evaluamos en $x = 0$, obtenemos el mismo resultado
+We can see that evaluating at $x = 0$, we get the same result
 
 \begin{equation}
 \begin{cases}
@@ -22,7 +22,7 @@ Podemos ver que cuando evaluamos en $x = 0$, obtenemos el mismo resultado
 \end{cases}
 \end{equation}
 
-Por supuesto, demostrarlo para un valor está lejos de demostrarlo para todos los valores, sin embargo, nótese que
+Of course, proving it for one value is far from proving it for every value. However, note that
 
 \begin{equation}
 \begin{cases}
@@ -31,33 +31,33 @@ Por supuesto, demostrarlo para un valor está lejos de demostrarlo para todos lo
 \end{cases}
 \end{equation}
 
-Dos funciones que satisfacen la misma ecuación diferencial para la misma condicion inicial están destinadas a ser iguales, así que
+Two functions which satisfy the same differential equation for the same initial conditions are bound to be equal, hence
 
 $$\exp(ix) = \cos(x) + i\sin(x)$$
 
-\subsection{Demostración por serie de Taylor.}
+\subsection{Proof by Taylor Series.}
 
-Podemos escribir la expansión de Taylor de cada término:
+We can write the Taylor expansion of each term:
 
 $$\cos(x)  =  \sum\limits_{n=0}^{\infty} \frac{D^n(\cos(x))_{x=0}}{n!} x^n = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots$$
 $$i\sin(x) = i\sum\limits_{n=0}^{\infty} \frac{D^n(\sin(x))_{x=0}}{n!} x^n = ix - \frac{ix^3}{3!} + \frac{ix^5}{5!} - \frac{ix^7}{7!} + \cdots$$
 $$\exp(ix) =  \sum\limits_{n=0}^{\infty} \frac{(ix)^n}{n!} = 1 + ix - \frac{x^2}{2!} - \frac{ix^3}{3!} + \frac{x^4}{4!} + \frac{ix^5}{5!} - \frac{x^6}{6!} - \frac{ix^7}{7!} + \cdots$$
 
-Es inmediatamente obvio que
+It is immediately obvious that
 
 $$\exp(ix) = \cos(x) + i\sin(x)$$
 
-\subsection{Notación polar compleja.}
+\subsection{Complex polar notation.}
 
-Gracias a esto tenemos una forma muy conveniente y elegante de expresar números complejos. Regresando a las coordenadas polares, cuando un número complejo $z$ era representado por su longitud $|z|$ y su ángulo $\alpha$, teníamos que
+Thanks to this we have a very convenient and elegant way to express complex numbers. Going back to polar coordinates, where a complex number $z$ is represented by its length $|z|$ and its angle $\alpha$, we had that
 
 $$z = |z| \cdot (\cos(\alpha) + i\sin(\alpha))$$
 
-Con el conocimiento adquirido, está claro que podemos expresar esto como
+With the acquired knowledge, it is clear that we can express this as
 
 $$z = |z| \cdot \exp(i\alpha)$$
 
-O, si se prefiere,
+Or, if one prefers it,
 
 $$z = |z| \cdot e^{i\alpha}$$
 

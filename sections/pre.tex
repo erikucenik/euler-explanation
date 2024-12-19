@@ -1,69 +1,69 @@
-\section{Requisitos previos.}
+\section{Prerequisites.}
 
-El grueso de este artículo gira en torno a la integral de una función, así que se espera como mínimo un entendimiento de qué son las funciones. Se usarán números complejos, pero dedicamos una sección a definirlos minuciosamente. Las únicas funciones trigonométricas importantes para entender este artículo son $\sin(x)$ y $\cos(x)$. Ninguna de sus propiedades será necesaria. En esta sección ofrecemos definiciones \textbf{muy} simplificadas del mínimo teórico para entender lo que sigue.
+The bulk of this article revolves around the integral of a function, so at the very least a grasp of what functions are is expected. Complex numbers will be used, but we dedicate a section to defining them thoroughly. The only trigonometric functions important for understanding this article are $\sin(x)$ and $\cos(x)$. None of their properties are needed. In this section we offer \textbf{very} simplified definitions of the theoretical minimums to understand what follows.
 
-\subsection{Trigonometría.} \label{trig}
+\subsection{Trigonometry.} \label{trig}
 
-\subsubsection{El número $\pi$.}
+\subsubsection{The number $\pi$.}
 
-El círculo es una figura geométrica muy interesante con montones de propiedades, una de las cuales es la relación entre su perímetro $P$ y su radio $r$. El perímetro de cualquier círculo es \textit{proporcional} a su radio, y esa constante de proporcionalidad es $\tau = 6.2831...$. En otras palabras, $P = \tau \cdot r$.
+The circle is a very interesting geometric shape with lots of properties, one of which is the relationship between its perimeter $P$ and its radius $r$. A circle's perimeter is \textit{proportional} to its radius, and that proportionality constant is $\tau = 6.2831...$. In other words, $P = \tau \cdot r$.
 
-Esta definición es agradable y sencilla, pero suele ser ensombrecida por el hecho de que históricamente no usamos $\tau$, sino $\pi = \frac{\tau}{2}$, así que la expresión anterior se convierte en $P = 2 \pi r = \pi d$ (donde $d = 2r$ es el diámetro del círculo). En realidad, es indistinto usar $\pi$ o $\tau$, pues simplemente habremos de corregir por un factor de $2$. Durante este artículo utilizaremos $\tau$ tanto por su valor intuitivo como para forzar al lector a no depender de sus preconcepciones.
+This is a nice and simple definition, but it is often obscured by the fact that historically we don't use $\tau$, but $\pi = \frac{\tau}{2}$, and so the previous expression becomes $P = 2 \pi r = \pi d$ (where $d = 2r$ is the circle's diameter). In truth, whether we use $\pi$ or $\tau$ is irrelevant, as we'll just have to correct for factors of $2$. During this article we'll use $\tau$, both because of its intuitive value and to force the reader to not rely on their preconceptions.
 
-\subsubsection{Ángulos y Radianes.}
+\subsubsection{Angles and Radians.}
 
-Dadas dos líneas intersecantes, podemos tomar un radio $r$ desde su punto de intersección y trazar un arco con longitud $s$ que vaya de una línea hasta la otra. Definimos el \textit{ángulo} formado por estas dos líneas como la proporción entre la longitud del arco y el radio elegido: $\alpha = \frac{s}{r}$.
+Given two intersecting lines, we can take a radius $r$ from their intersection point and trace an arc with length $s$ that goes from one line to the other. We define the \textit{angle} formed by these two lines to be a proportion between the arc length and the chosen radius: $\alpha = \frac{s}{r}$.
 
-Solemos medir ángulos en grados. Sabemos que un ángulo recto son $90^{\circ}$, que la suma de ángulos de un triángulo es $180^{\circ}$, y que una vuelta completa al círculo son $360^{\circ}$. Escoger 360 en lugar de cualquier otro número para referirse a un ciclo completo es el resultado de las ocurrencias de la historia, pero es cierto que sus numerosos divisores lo hacen un número muy conveniente con el que trabajar.
+We are used to measuring angles in degrees. We know that a right angle is $90^{\circ}$, that the sum of angles in a triangle is $180^{\circ}$, and that a full rotation around a circle is $360^{\circ}$. Choosing 360 rather than any other number to mean a full cycle is the result of historical happenstance, although it's true that its many factors make it a very convenient number to work with.
 
-En entornos científicos se tiende a abandonar esta unidad de medida tradicional en favor de una medida más \enquote{objetiva}: el radián. El radián es la unidad que se obtiene cuando simplemente se hace el cociente $\frac{s}{r}$. Entonces por ejemplo, si el radio $r$ es $2$ y la longitud del arco que forma el ángulo es $5$, el valor del ángulo será $\alpha = \frac{s}{r} = \frac{5}{2}$ radianes.
+In scientific fields we tend to ditch this traditional measurement in favor of a more \enquote{objective} unit: the radian. The radian is the unit you get by just doing the quotient $\frac{s}{r}$. So for example, if the radius $r$ is $2$ and the arc length of the formed angle is $5$, the angle's value will be $\alpha = \frac{s}{r} = \frac{5}{2}$ radians.
 
-Nótese que si escalamos esta ecuación por un factor de $\frac{360}{\tau}$, obtendremos su valor en grados. Más importantemente, nótese que una revolución completa son $\tau$ radianes, y que para un círculo unidad ($r = 1$), el valor del ángulo siempre coincidirá con la longitud del arco formado. Es estándar considerar que el radián es \textit{adimensional} y que las funciones trigonométricas se definen en base a este.
+Note that by simply scaling the above equation by a factor of $\frac{360}{\tau}$, we'll get its value in degrees. Most importantly, note that a full rotation is $\tau$ radians, and that for a unit circle ($r = 1$), the angle will always coincide with the arc length. It is standard to consider the radian \textit{dimensionless} and for trigonometric functions to be defined in terms of it.
 
 \newpage
 
-\subsubsection{$\sin$ y $\cos$}
+\subsubsection{$\sin$ and $\cos$}
 
-Dado cualquier punto $P$ sobre el círculo unidad centrado en el origen que forme un ángulo $\alpha$ con el eje X, definimos sus coordenadas como $(\cos(\alpha), \sin(\alpha))$. Dado cualquier otro radio $r$, podemos simplemente escalar ambas componentes por $r$. Puede que esto no sea una definición estándar para principiantes, pero será suficiente. Estamos seguros de que su relación con triángulos, semejanza y periodicidad ya es en cierta medida entendida por el lector.
+Given any point $P$ in the unit circle centered at the origin which forms an angle $\alpha$ with the X axis, we define its coordinates to be $(\cos(\alpha), \sin(\alpha))$. Given any other radius $r$, one can just scale both components by $r$. This might not be the standard beginner-friendly definition, but it will suffice. Surely their relationship with triangles, similarity and periodicity is already somewhat understood by the reader.
 
-\subsection{Cálculo.}
+\subsection{Calculus.}
 
-El cálculo es una rama de las matemáticas que se centra en analizar funciones mediante dos transformaciones: la derivada y la integral. Las definiciones de estos conceptos tienen muchísimos más matices que lo que vamos a presentar. Libros de texto completos pueden y han sido escritos sobre estas. Sin embargo, para los fines de este artículo, estas servirán como punto común.
+Calculus is a branch of mathematics which focuses on analysing functions through two transformations: the derivative and the integral. The actual definitions of these concepts are massively more nuanced than what we are about to present. Whole textbooks can and have been written about them. However, for the purposes of this article, these will suffice and serve as a common ground.
 
-\subsubsection{La derivada.}
+\subsubsection{The derivative.}
 
-Dada una función $f(x)$, su \textit{derivada} $f'(a)$ en un valor dado $a$ se define como la tasa de cambio de $f$ en ese valor. Se puede pensar como la \enquote{pendiente} de la recta tangente a $f$ en el punto $(a, f(a))$. Podemos tomar la derivada de $f$ en todos los valores de $x$ y definir una nueva función $f'(x)$ como su \textit{derivada}.
+Given a function $f(x)$, its \textit{derivative} $f'(a)$ at a given value $a$ is defined to be the rate of change of $f$ at that value. It can be thought of as the \enquote{slope} of the line tangent to $f$ at point $(a, f(a))$. We can take the derivative of $f$ at every $x$ value and define a new function $f'(x)$ to be its \textit{derivative}.
 
-\subsubsection{La integral.}
+\subsubsection{The integral.}
 
-Dada una función $f(x)$, su \textit{integral} de $a$ hasta $b$ es el área encerrada entre el eje X, $a$, $b$ y la curva dibujada por los valores de $f(x)$. Se denota $\int_{a}^{b} f(x) dx$ y es un \textit{número}, no una función.
+Given a function $f(x)$, its \textit{integral} from $a$ to $b$ is the area enclosed between the X axis, $a$, $b$ and the curve drawn by the values of $f(x)$. It's denoted as $\int_{a}^{b} f(x) dx$, and it is a \textit{number}, not a function.
 
-Como un paréntesis didáctico, nótese que podemos construir una función a partir de una integral al igual que podemos hacerlo a partir de cualquier otro operador. Así que mientras que $\int_a^b f(x) dx$ no es una función, $g(t) = \int_a^t f(x) dx$ sí que lo es (lo que varía es el límite superior de integración), análogo a cómo $2^3$ no es una función, pero $h(x) = 2^x$ sí.
+As a didactic asterisk, note that we can construct a function out of an integral just as we can from any other operator. So, while $\int_a^b f(x) dx$ is not a function, $g(t) = \int_a^t f(x) dx$ is (what varies here is the upper integration boundary), analogous to how $2^3$ is not a function, but $h(x) = 2^x$ is.
 
-Para reiterar, estas son definiciones increíblemente poco rigurosas que solo sirven como mínimo teórico. Se espera que el lector esté ya algo familiarizado con esta sección.
+To reiterate, these are incredibly non-rigorous definitions that just serve as a theoretical minimum. The reader is expected to be somewhat familiar with this section already.
 
-\subsubsection{La antiderivada.}
+\subsubsection{The antiderivative.}
 
-Dada una función $f(x)$, su antiderivada es una función $g(x)$ cuya derivada da $f(x)$. Infinitas funciones cumplen esto, pues cualquier término constante en $g(x)$ se anulará. La forma de expresar esto es otro producto horrendo de la notación:
+Given a function $f(x)$, its antiderivative is a function $g(x)$ whose derivative yields $f(x)$. Be aware that infinitely many functions satisfy this, as any constant terms in $g(x)$ will be nullified. The way to express this is another product of notational horror:
 
 $$g'(x) = f(x) \iff g(x) = \int f(x) dx$$
 
-Este símbolo $\int$ no tiene nada que ver con la integral, solo es una notación que significa \enquote{antiderivada}.
+This $\int$ symbol has nothing to do with the integral, and is just a notation that means \enquote{antiderivative}.
 
-\subsubsection{El Teorema Fundamental del Cálculo.}
+\subsubsection{The Fundamental Theorem of Calculus.}
 
-Este teorema enuncia una relación para nada trivial entre derivadas e integrales, que se divide en dos partes:
+This theorem states a very non-trivial relationship between derivatives and integrals, which is split in two parts:
 
 $$F(x) = \int_a^x f(t) dt \iff F'(x) = f(x)$$
 
-y
+and
 
 $$\int_a^b f(x) dx = F(b) - F(a)$$
 
-El hecho de que $f$ sea la antiderivada de $F$ permite reescribir la expresión anterior como:
+The fact that $f$ is the antiderivative of $F$ allows the previous expression to be written as:
 
 $$\int_a^b f(x) dx = \left[\int f(x) dx)\right]_{a}^{b}$$
 
-Otro resulto de masacre notacional que por siempre hará que los estudiantes confundan los conceptos de integral y antiderivada.
+Another result of notational slaughtering which will forever make students confuse the concepts of integral and antiderivative.
 
 \newpage

@@ -1,22 +1,22 @@
-\section{Números complejos.}
+\section{Complex numbers.}
 
-Los números complejos son otro tema que induce a la locura en aquéllos que no están preparados. Al estudiante se le dice durante toda su vida que \enquote{los números negativos no tienen raíces cuadradas} solo para mandar todo al garete un día y decir que mágicamente sí tienen. No solo eso, la explicación es también bastante pobre. La definición habitual suele ser \enquote{sea $i = \sqrt{-1}$}, lo cual visto desde lejos parece una forma bruta y vaga de resolver el problema. Por supuesto, los números complejos también llegaron a ser lo que son por un proceso histórico, pero preferimos ofrecer directamente el conjunto ya generalizado y bien definido.
+Complex numbers are also an insanity-inducing topic for those unprepared. The student gets told during their whole life that \enquote{negative numbers don't have square roots} just for one day to throw everything out the window and say they magically do. Not only that, the explanation is rather poor too. The usual definition goes \enquote{let $i = \sqrt{-1}$}, which, when seen from afar, seems like a lazy brutish way of solving the problem. Of course, complex numbers also came to existance through a historical process, but we prefer to offer the already-generalized and well defined set directly.
 
-Definimos los números complejos $\mathbb{C}$ como un álgebra sobre el espacio vectorial $\mathbb{R}^2$, siendo sus dos operaciones:
+We define the complex numbers $\mathbb{C}$ as an algebra over the $\mathbb{R}^2$ vector space, with its two operations being:
 
 \begin{itemize}
-	\item Suma: $(a, b) + (c, d) = (a + c, b + d)$.
-	\item Producto: $(a, b) \cdot (c, d) = (ac - bd, ad + bc)$.
+	\item Addition: $(a, b) + (c, d) = (a + c, b + d)$.
+	\item Product: $(a, b) \cdot (c, d) = (ac - bd, ad + bc)$.
 \end{itemize}
 
-A partir de ahora, el número complejo $(a, b)$ será escrito como $a + bi$, y diremos que $a$ es su parte \textit{real} y $b$ su parte \textit{imaginaria}. Nótese que $i^2 = (0, 1) \cdot (0, 1) = (0 \cdot 0 - 1 \cdot 1, 0 \cdot 1 + 1 \cdot 0) = (-1, 0) = -1$. Debido a esto y, nuevamente, mediante algo de abuso notacional, $i = \sqrt{-1}$.
+From now on, the complex number $(a, b)$ will be written as $a + bi$, and we will call $a$ its \textit{real} part and $b$ its \textit{imaginary} part. Note that $i^2 = (0, 1) \cdot (0, 1) = (0 \cdot 0 - 1 \cdot 1, 0 \cdot 1 + 1 \cdot 0) = (-1, 0) = -1$. Because of this fact and, again, through some notational abuse, $i = \sqrt{-1}$.
 
-\subsection{Coordenadas polares.}
+\subsection{Polar coordinates.}
 
-Si en lugar de tener las componentes de un número complejo $z$ se nos diese su longitud $|z|$ (también llamada su \textit{módulo}) y el ángulo $\alpha$ que forma su vector con el eje real (también llamado su \textit{argumento}), podríamos derivar sus coordenadas usando trigonometría básica (ver Sección \ref{trig}) y obtener que
+If instead of having the components of a complex number $z$ we were given its length $|z|$ (also called its \textit{modulus}) and the angle $\alpha$ its vector forms with the real axis (also called its \textit{argument}), we could derive its coordinates using basic trigonometry (see Section \ref{trig}) and get that
 
 $$z = |z| \cdot (\cos(\alpha) + i\cdot \sin(\alpha))$$
 
-Estamos ahora preparados para demostrar la fórmula de Euler.
+We are now ready to prove Euler's formula.
 
 \newpage
